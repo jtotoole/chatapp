@@ -22,7 +22,6 @@ server.on("connection", function(ws) {
     for (i=0; i<bannedWords.length; i++){
       var messageLowercase = hashDecoded.toLowerCase();
       if (messageLowercase.indexOf(bannedWords[i]) !== -1){
-        //ws.send("You have been banned for using inappropriate language.");
         bannedText = true;
         hashDecoded = (hash.name + " has been banned for using inappropriate language.");
       }
