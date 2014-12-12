@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://james.princesspeach.nyc:80");
+var ws = new WebSocket("ws://james.princesspeach.nyc:3000");
 
 ws.addEventListener("message", function(evt){
   var body = document.querySelector("body");
