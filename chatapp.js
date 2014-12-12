@@ -1,4 +1,5 @@
-var ws = new WebSocket("ws://james.princesspeach.nyc:3000");
+//var ws = new WebSocket("ws://james.princesspeach.nyc:3000"); //for running on http
+var ws = new WebSocket("ws://localhost:3000"); //for running locally
 
 ws.addEventListener("message", function(evt){
   var body = document.querySelector("body");

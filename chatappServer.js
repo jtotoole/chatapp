@@ -2,6 +2,7 @@ var WebSocketServer = require("ws").Server;
 var server = new WebSocketServer({port: 3000});
 var history = [];
 var clients = [];
+var bannedWords = ["hubby", "moist", "moisten", "fraternity"]
 
 server.on("connection", function(ws) {
   console.log("Client connected!"); //lets server know a client has connected
@@ -17,6 +18,18 @@ server.on("connection", function(ws) {
     var hash = JSON.parse(x);
     var hashDecoded = (hash.name + ": " + hash.words); //de-JSON client message
     console.log(hashDecoded);
+    for (i=0; i<bannedWords.length; i++){
+      var messageLowercase = hashDecoded.toLowerCase();
+      if (messageLowercase.indexOf(bannedWords[i]) !== -1){
+        ws.close(); // boot user if the message contains an index in the bannedWords array
+        var x = clients.indexOf(ws);
+        clients.splice(x, 1);
+        hashDecoded = (hash.name + " has been banned for using inappropriate language.");
+        //clients.forEach(function(client){
+        //  client.send(hashDecoded);
+        //});
+      }else{}
+    }
     history.push(hashDecoded); // add message from client to chat history
     clients.forEach(function(client){
       client.send(hashDecoded); //send client message to all users in chat
