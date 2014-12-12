@@ -22,18 +22,21 @@ server.on("connection", function(ws) {
     for (i=0; i<bannedWords.length; i++){
       var messageLowercase = hashDecoded.toLowerCase();
       if (messageLowercase.indexOf(bannedWords[i]) !== -1){
-        ws.send("You have been banned for using inappropriate language.");
+        //ws.send("You have been banned for using inappropriate language.");
         bannedText = true;
         hashDecoded = (hash.name + " has been banned for using inappropriate language.");
-        }
       }
-      if (bannedText === true){
-        ws.close(); // boot user if the message contains an index in the bannedWords array
-      }else{
-        history.push(hashDecoded); // add message from client to chat history
-        clients.forEach(function(client){
-          client.send(hashDecoded); //send client message to all users in chat
-        });
-      }
+    }
+    if (bannedText === true){
+      clients.forEach(function(client){
+        client.send(hashDecoded); //send client message to all users in chat
+      });
+      ws.close(); // boot user if the message contains an index in the bannedWords array
+    }else{
+      history.push(hashDecoded); // add message from client to chat history
+      clients.forEach(function(client){
+        client.send(hashDecoded); //send client message to all users in chat
+      });
+    }
   });
 });
