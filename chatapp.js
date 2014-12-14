@@ -4,7 +4,20 @@ var ws = new WebSocket("ws://localhost:3000"); //for running locally
 ws.addEventListener("message", function(evt){
   var ul = document.querySelector("ul");
   var newLi = document.createElement("li");
-  newLi.innerText = evt.data;
+  var messageText = evt.data;
+  var messageArray = messageText.split(" ");
+  for (i=0; i<=messageArray.length; i++){
+    if (messageArray[i] === "(tableflip)"){
+      messageArray.splice(i, 1, "(╯°□°）╯︵ ┻━┻");
+    }
+    else if (messageArray[i] === "/yell"){
+      messageArray.splice(i, 1);
+      for (i; i<messageArray.length; i++){
+        messageArray[i] = (messageArray[i]).toUpperCase();
+      }
+    }
+  }
+  newLi.innerText = messageArray.join(" ");
   ul.appendChild(newLi);
 });
 

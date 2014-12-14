@@ -6,7 +6,7 @@ var bannedWords = ["hubby", "moist", "moisten", "fraternity"]
 
 server.on("connection", function(ws) {
   console.log("Client connected!"); //lets server know a client has connected
-  ws.send("Welcome to JamesChat!");
+  ws.send("Welcome to JamesChat!"); //Welcome message
   clients.push(ws); //adds user to the list of people connected
   ws.on("close", function (){
     var x = clients.indexOf(ws);
