@@ -16,6 +16,26 @@ ws.addEventListener("message", function(evt){
         messageArray[i] = (messageArray[i]).toUpperCase();
       }
     }
+    else if (messageArray[i] === "(shrug)"){
+      messageArray.splice(i, 1, "¯\_(ツ)_/¯");
+    }
+    else if (messageArray[i] === "(smile)"){
+      messageArray.splice(i, 1, "(✿◠‿◠)");
+    }
+    else if (messageArray[i] === "(eyebrow)"){
+      messageArray.splice(i, 1, "(͡° ͜ʖ ͡°)");
+    }
+    else if (messageArray[i] === "(anger)"){
+      messageArray.splice(i, 1, "(ಠ_ಠ)");
+    }
+    else if (messageArray[i] === "(ping pong)"){
+      messageArray.splice(i, 1, "( •_•)O*¯`·.¸.·´¯`°Q(•_• )");
+    }
+    else if (messageArray[i] === "(surprise)"){
+      messageArray.splice(i, 1, "(ﾉﾟ0ﾟ)ﾉ");
+    }
+    else if (messageArray[i] === "(tears)"){
+      messageArray.splice(i, 1, "༼ ༎ຶ ෴ ༎ຶ༽");
   }
   newLi.innerText = messageArray.join(" ");
   ul.appendChild(newLi);
