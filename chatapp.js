@@ -2,10 +2,10 @@
 var ws = new WebSocket("ws://localhost:3000"); //for running locally
 
 ws.addEventListener("message", function(evt){
-  var body = document.querySelector("body");
-  var newP = document.createElement("p");
-  newP.innerText = evt.data;
-  body.appendChild(newP);
+  var ul = document.querySelector("ul");
+  var newLi = document.createElement("li");
+  newLi.innerText = evt.data;
+  ul.appendChild(newLi);
 });
 
 var message = document.getElementById("input");
