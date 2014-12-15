@@ -22,7 +22,8 @@ h1 {
 ul {
   list-style-type: none;
   border: solid red 10px;
-  width: 100%;
+  width: 75%;
+  height: 350px;
   padding: 5px;
   margin: 5px;
   overflow: scroll;

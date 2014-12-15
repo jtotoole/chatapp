@@ -3,10 +3,11 @@ var ws = new WebSocket("ws://localhost:3000"); //for running locally
 
 var ul = document.querySelector("ul");
 
-setInterval(function () {
-  var elem = ul;// just to scroll down the line
-  elem.scrollTop = elem.scrollHeight;
-},30);
+ws.addEventListener("open", function(){
+  var userName = window.prompt("Welcome to JamesChat! Please enter your user name.");
+  var namebox = document.getElementById("namebox");
+  namebox.value = userName;
+});
 
 ws.addEventListener("message", function(evt){
   var ul = document.querySelector("ul");
@@ -59,9 +60,7 @@ ws.addEventListener("message", function(evt){
   }
   newLi.innerHTML = "<li>" + messageArray.join(" ") + "</li> ";
   ul.appendChild(newLi);
-  window.setInterval(function() {
-    ul.scrollTop = ul.scrollHeight;
-  }, 1000);
+  ul.scrollTop = ul.scrollHeight;
 });
 
 var message = document.getElementById("input");
@@ -81,6 +80,13 @@ emojibutton.addEventListener("click", function(){
   var emojis = ["(tableflip)", "(shrug)", "(smile)", "(eyebrow)", "(anger)", "(surprise)", "(tears)"]
   var hash = {name: namebox.value}
   hash["words"] = emojis[Math.floor(Math.random() * (7))];
+  var stuff = JSON.stringify(hash);
+  ws.send(stuff);
+});
+
+mambobutton.addEventListener("click", function(){
+  var hash = {name: namebox.value}
+  hash["words"] = "<iframe width='560' height='315' src='http://www.youtube.com/embed/zYT2WVnwiLI?rel=0?autoplay=1' frameborder='0' allowfullscreen></iframe>";
   var stuff = JSON.stringify(hash);
   ws.send(stuff);
 });
