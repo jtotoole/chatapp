@@ -1,6 +1,49 @@
+h1 {
+  font-family: Impact;
+  color: white;
+}
+
+#input {
+  border: solid green 2px;
+  height: 50px;
+  width: 600px;
+  padding-bottom: 5px;
+}
+
+#nameinput {
+  font-family: Impact;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: solid purple 2px;
+  max-width: 300px;
+  color: white;
+}
+
 ul {
   list-style-type: none;
+  border: solid red 10px;
+  max-width: 750px;
   padding: 5px;
   margin: 5px;
   overflow: scroll;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#messageinput {
+  font-family: Impact;
+  color: white;
+}
+
+#chatbox {
+  background-color: orange;
+  font-family: Georgia;
+}
+
+body {
+  background-image: url("http://www.togetheragency.co.uk/blog/wp-content/uploads/2012/12/bear-shark-1.jpg");
+  background-repeat: repeat;
+  background-size: 100px;
+  margin-bottom: 20px
 }
