@@ -59,6 +59,9 @@ ws.addEventListener("message", function(evt){
   }
   newLi.innerHTML = "<li>" + messageArray.join(" ") + "</li> ";
   ul.appendChild(newLi);
+  window.setInterval(function() {
+    ul.scrollTop = ul.scrollHeight;
+  }, 1000);
 });
 
 var message = document.getElementById("input");
