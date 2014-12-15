@@ -33,7 +33,7 @@ server.on("connection", function(ws) {
       });
       ws.close(); // boot user if the message contains an index in the bannedWords array
     }else{
-      history.push("<li>" + hashDecoded + "</li>"); // add message from client to chat history
+      history.push("<li>" + hashDecoded + "</li> "); // add message from client to chat history
       clients.forEach(function(client){
         client.send(hashDecoded); //send client message to all users in chat
       });
