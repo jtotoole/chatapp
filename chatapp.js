@@ -6,7 +6,9 @@ ws.addEventListener("message", function(evt){
   var newLi = document.createElement("li");
   var messageText = evt.data;
   var messageArray = messageText.split(" ");
-  for (i=0; i<=messageArray.length; i++){
+  for (i=0; i<messageArray.length; i++){
+    var messageWord = messageArray[i];
+    var messageLink = messageWord.substring(0,7);
     if (messageArray[i] === "(tableflip)"){
       messageArray.splice(i, 1, "(╯°□°）╯︵ ┻━┻");
     }
@@ -36,8 +38,14 @@ ws.addEventListener("message", function(evt){
     }
     else if (messageArray[i] === "(tears)"){
       messageArray.splice(i, 1, "༼ ༎ຶ ෴ ༎ຶ༽");
+    }
+    else if (messageArray[i].substring(0, 4) === "http"){
+    var link = messageArray[i];
+    var linkTag = ("<a href='" + link + "'>" + link + "</a>");
+    messageArray.splice(i, 1, linkTag);
+    }
   }
-  newLi.innerText = messageArray.join(" ");
+  newLi.innerHTML = "<li>" + messageArray.join(" ") + "</li>";
   ul.appendChild(newLi);
 });
 
