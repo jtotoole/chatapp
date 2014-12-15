@@ -1,6 +1,7 @@
 h1 {
   font-family: Impact;
   color: white;
+  text-align: center;
 }
 
 #input {
@@ -14,7 +15,6 @@ h1 {
   font-family: Impact;
   padding-top: 2px;
   padding-bottom: 2px;
-  border: solid purple 2px;
   max-width: 300px;
   color: white;
 }
@@ -22,7 +22,7 @@ h1 {
 ul {
   list-style-type: none;
   border: solid red 10px;
-  max-width: 750px;
+  width: 100%;
   padding: 5px;
   margin: 5px;
   overflow: scroll;
