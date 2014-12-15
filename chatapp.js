@@ -64,6 +64,23 @@ ws.addEventListener("message", function(evt){
 var message = document.getElementById("input");
 var namebox = document.getElementById("namebox");
 var button = document.getElementById("button");
+var jamesbutton = document.getElementById("jamesbutton");
+
+jamesbutton.addEventListener("click", function(){
+  var photos = ["http://i.imgur.com/zdRh9Cs.jpg", "http://i.imgur.com/aiPfZkj.jpg", "http://i.imgur.com/SujIrhE.jpg", "http://i.imgur.com/yNv5Z3F.jpg", "http://i.imgur.com/kelmJ6o.jpg", "http://i.imgur.com/dEgBkFu.jpg", "http://i.imgur.com/8uPypPV.jpg", "http://i.imgur.com/veKIEge.jpg"];
+  var hash = {name: namebox.value}
+  hash["words"] = photos[Math.floor(Math.random() * (8))];
+  var stuff = JSON.stringify(hash);
+  ws.send(stuff);
+});
+
+emojibutton.addEventListener("click", function(){
+  var emojis = ["(tableflip)", "(shrug)", "(smile)", "(eyebrow)", "(anger)", "(surprise)", "(tears)"]
+  var hash = {name: namebox.value}
+  hash["words"] = emojis[Math.floor(Math.random() * (7))];
+  var stuff = JSON.stringify(hash);
+  ws.send(stuff);
+});
 
 button.addEventListener("click", function(){
   var hash = {name: namebox.value}
